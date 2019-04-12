@@ -1,7 +1,7 @@
 import { bindable } from 'aurelia-framework';
 import highcharts from 'highcharts';
 
-export class LineChartCustomElement {
+export class TrendCustomElement {
     //chart options
     options;
 

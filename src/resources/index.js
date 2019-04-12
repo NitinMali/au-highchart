@@ -1,5 +1,5 @@
 export function configure(config) {
-  config.globalResources([
+  /*config.globalResources([
     'resources/elements/line-chart'
-  ]);
+  ]);*/
 }
