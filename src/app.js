@@ -8,7 +8,8 @@ export class App {
       { route: ['bar'], name: 'bar', moduleId: 'views/layout', title: 'Bar' },
       { route: ['pie'], name: 'pie', moduleId: 'views/layout', title: 'Pie' },
       { route: ['trend'], name: 'trend', moduleId: 'views/layout', title: 'Trend' },
-      { route: [''], name: 'default', moduleId: 'views/layout', title: 'Home' }
+      { route: 'control/:control', name: 'control', moduleId: 'views/layout', title: 'Control' },
+      { route: [''], redirect: 'control/bar'  }
     ]);
 
     this.router = router;

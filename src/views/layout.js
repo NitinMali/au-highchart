@@ -11,6 +11,7 @@ export class Layout {
   configMenuVisible = false;
   router;
   navigationInstruction;
+  param;
 
   seriesPopulation = [{
     name: 'KPI 1',
@@ -28,6 +29,9 @@ export class Layout {
   }
 
   activate(params, navigationInstruction) {
+
+    this.param = params;
+
     this.navigationInstruction = navigationInstruction;
     console.log(navigationInstruction);
   }

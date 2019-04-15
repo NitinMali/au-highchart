@@ -9,21 +9,33 @@
         </div>
         <div class="pure-u-sm-1-2">
           <div class="float-right">
-            <a class="pure-button pure-button-active" route-href="bar">Bar</a>
-            <a class="pure-button pure-button-active" route-href="pie">Pie</a>
-            <a class="pure-button pure-button-active" route-href="trend">Trend</a>
+            <a class="pure-button pure-button-active" route-href="route.bind: 'control'; params.bind: { control: 'bar' }">Bar</a>
+            <a class="pure-button pure-button-active" route-href="route.bind: 'control'; params.bind: { control: 'pie' }">Pie</a>
+            <a class="pure-button pure-button-active" route-href="route.bind: 'control'; params.bind: { control: 'trend' }">Trend</a>
           </div>
         </div>
       </div>
+      <template if.bind="param.control === 'trend'">
+        <div class="sidenav bg-light" ref="mySidenav">
+          <trend-configurator title="Trend configurator"></trend-configurator>
+        </div>
+        <div class="col-12" ref="main">
+          <trend type="line" title="Trend Control" subtitle="Trend control for operand value" title-y="Value"
+            series.bind="seriesPopulation" point-start.bind="2010">
+          </trend>
+        </div>
+      </template>
 
-      <div class="sidenav bg-light" ref="mySidenav">
-        <trend-configurator title="Trend configurator"></trend-configurator>
-      </div>
-      <div class="col-12" ref="main">
-        <trend type="line" title="Trend Control" subtitle="Trend control for operand value" title-y="Value"
-          series.bind="seriesPopulation" point-start.bind="2010">
-        </trend>
-      </div>
+      <template if.bind="param.control === 'pie'">
+          <div class="sidenav bg-light" ref="mySidenav">
+            <pie-configurator title="Pie configurator"></pie-configurator>
+          </div>
+          <div class="col-12" ref="main">
+            <pie type="pie" title="Trend Control" subtitle="Trend control for operand value" title-y="Value"
+              series.bind="seriesPopulation" point-start.bind="2010">
+          </pie>
+          </div>
+        </template>
     </div>
   </div>
 </template>
