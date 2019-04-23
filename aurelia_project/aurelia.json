@@ -17,7 +17,7 @@
         "port": 9000,
         "index": "index.html",
         "baseDir": ".",
-        "output": "scripts"
+        "output": "dist"
       }
     ],
     "options": {
@@ -28,13 +28,13 @@
     },
     "bundles": [
       {
-        "name": "app-bundle.js",
+        "name": "control/js/app-bundle.js",
         "source": [
-          "**/*.{js,json,css,html}"
+          "**/*.{js,json,html}"
         ]
       },
       {
-        "name": "vendor-bundle.js",
+        "name": "control/js/vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
           {
@@ -83,6 +83,13 @@
           "stub": true
         }
       ]
+    },
+    "copyFiles": {
+      "src/assets/**/*": "dist/assets",
+      "src/libs/**/*": "dist/control/libs",
+      "src/i18n/**/*": "dist/control/i18n",
+      "src/manifest.json": "dist",
+      "index.html": "dist/control/"
     }
   },
   "platform": {
